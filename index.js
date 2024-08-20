@@ -51,7 +51,7 @@ watcher.on('change', (file, file_stats) => {
   }
   updateTable()
 
-  const child = exec.spawn('./simc', [file,"output=output/output_tmp_.txt","html=output/"+id+".html","json=output/"+id+".json"]);
+  const child = exec.spawn('simc', [file,"output=output/output_tmp_.txt","html=output/"+id+".html","json=output/"+id+".json"]);
   child.stdout.setEncoding('utf8');
   // use child.stdout.setEncoding('utf8'); if you want text chunks
   child.stdout.on('data', (chunk) => {
