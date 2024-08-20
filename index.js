@@ -20,8 +20,12 @@ function makeid(length) {
 }
 
 function get_dps_for(id){
-  const data= fs.readFileSync('output/'+id+'.json');
-  return Math.floor(JSON.parse(data).sim.players[0].collected_data.dps.median /1000) +"k";
+  try{
+    const data= fs.readFileSync('output/'+id+'.json');
+    return Math.floor(JSON.parse(data).sim.players[0].collected_data.dps.median /1000) +"k";
+  }catch(e){
+    return "Error"
+  }
 }
 
 function updateTable(){
